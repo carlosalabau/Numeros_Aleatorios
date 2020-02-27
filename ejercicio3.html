@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="POST">
+    <form>
         <label for="numero">Introduce un numero</label>
         <input id="input" type="number" />
         <button type="submit" onclick="calcular()">Intentar</button>
@@ -15,22 +15,23 @@
 
 
     <script>
-        var count = 0;
-        var aleatorio = Math.round(Math.random()*10);
+        let count = 0;
+        let aleatorio = Math.round(Math.random()*10);
         console.log(aleatorio);
-        let num = document.getElementById('input').value;
-        console.log(num);
-        let intentos = document.write("Fallo. El numero de intentos es "+count);
-        function calcular(){
 
+        function calcular(){
+            event.preventDefault();
+            let num = document.getElementById('input').value;
             if(num == aleatorio){
-                alert('Has acertado')
+                alert("Has acertado");
             }else{
                 count++;
+                let intentos = 'Fallo. El numero de intentos es '+count;
                 document.getElementById('intentos').innerText = intentos;
                 console.log(count);
             }
         }
+  
     </script>
 
 
