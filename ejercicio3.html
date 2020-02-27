@@ -6,14 +6,33 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="">
-        <label for="numero">Introduce un numero</label><input type="number">
+    <form action="" method="POST">
+        <label for="numero">Introduce un numero</label>
+        <input id="input" type="number" />
+        <button type="submit" onclick="calcular()">Intentar</button>
+        <p id="intentos"></p>
     </form>
+
+
     <script>
         var count = 0;
-        var num1 = parseInt(prompt("Numero del 1 al 10"));
-        var aleatorio = Math.random(0,10);
-        
+        var aleatorio = Math.round(Math.random()*10);
+        console.log(aleatorio);
+        let num = document.getElementById('input').value;
+        console.log(num);
+        let intentos = document.write("Fallo. El numero de intentos es "+count);
+        function calcular(){
+
+            if(num == aleatorio){
+                alert('Has acertado')
+            }else{
+                count++;
+                document.getElementById('intentos').innerText = intentos;
+                console.log(count);
+            }
+        }
     </script>
+
+
 </body>
 </html>
